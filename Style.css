@@ -1,0 +1,10 @@
+.rockpapersiccors {
+    width: 100px;
+    display: inline-flex;
+}
+.rockpapersiccors img{
+    margin: auto 5px;
+    float: left;
+    width: 150px;
+    height: 38px;
+}
