@@ -1,21 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--Links to other pages:
-          file:///C:/Users/valta/Desktop/Website/Main.html 
-          file:///C:/Users/valta/Desktop/Website/page%202.html   Page 2
-          file:///C:/Users/valta/Desktop/Website/Page%203.html   Page 3
-          file:///C:/Users/valta/Desktop/Website/Page%204.html   Page 4 -->
+          file:///C:/Users/valta/Desktop/Website/Main.html Main page
+          file:///C:/Users/valta/Desktop/Website/page2.html page 2
+          file:///C:/Users/valta/Desktop/Website/page3.html page 3
+          file:///C:/Users/valta/Desktop/Website/page4.html page 4 -->
     <head>
         <meta charset="UTF-8">
-        <title>Page 2</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    
-    <strong>Page 2 </strong>
+        <title>Rock, Paper, Sissors</title>
+        <h1>Rock Paper siccors</h1>
+        <hr>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <style>
+          .gray {
+            background-color:lightgray;
+          }
+          .red {
+            background-color:rgb(242, 176, 161);
+          }
+          .green {
+            background-color:rgb(143, 174, 172);
+          }
+          .blue {
+            background-color:lightblue;
+          }
+        </style>
+      </head>
+      
+      <body>
+        <div class="container">
+          <div class="row">
+            <div class="col text-center gray">
+              <p id="directions-text">Choose: 
+                <select id="choice" name="choice">
+                    <option value="rock">Rock</option>
+                    <option value="paper">Paper</option>
+                    <option value="scissors">Scissors</option>
+                </select>
+                <button class="btn-primary">Play!</button>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm text-center red">
+              <!-- This is only displayed after a player wins a round. Otherwise it is invisible. It shows your choice and the computer's choice. -->
+              <p id="roundChoices" style="display: none;">You chose <strong id="userChoice"></strong>, and the computer chose <strong id="computerChoice"></strong>.</p>
+            </div>
+            <div class="col-sm text-center green">
+              <!-- This is only displayed after a round is played and the player won or lost.  Otherwise it is invisible. It explains WHY the player won or lost. -->
+              <p id="roundResults" style="display: none;">You <strong id="winLose"></strong> because <strong id="winner"></strong> <strong id="verb"></strong> <strong id="loser"></strong>.</p>
+              <!-- This is only displayed of the player ties the computer. Otherwise it is invisible. -->
+              <p id="youTied" style="display: none;">You tied.</p>
+            </div>
+            <!-- This column reports the wins, losses, and ties -->
+            <div class="col-sm blue">
+              <div class="row">
+                <div class="col text-center">
+                  <p>Wins: <span id="wins"></span></p>
+                </div>
+                <div class="col text-center">
+                  <p>Losses: <span id="losses"></span></p>
+                </div>
+                <div class="col text-center">
+                  <p>Ties: <span id="ties"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <script type="text/javascript">
+          // Create an array that lists out all of the options (Rock, Paper, Scissors).
+          var choices = ["rock", "paper", "scissors"];
+          //fill an array with all possible winning combination objects according to the rules of the game
+          var winningCombinations = [
+            {winner: choices[0], loser: choices[2], verb: "smashes"}, 
+            {winner: choices[0], loser: choices[3], verb: "crushes"},
+            {winner: choices[1], loser: choices[0], verb: "covers"},
+            {winner: choices[1], loser: choices[4], verb: "disproves"},
+            {winner: choices[2], loser: choices[1], verb: "cuts"},
+            {winner: choices[2], loser: choices[3], verb: "decapitates"},
+            {winner: choices[3], loser: choices[4], verb: "poisons"},
+            {winner: choices[3], loser: choices[1], verb: "eats"},
+            {winner: choices[4], loser: choices[0], verb: "vaporizes"},
+            {winner: choices[4], loser: choices[2], verb: "smashes"}
+          ]
+          // create variables to hold the number of wins, losses, and ties. They start at 0.
+          var wins = 0;
+          var losses = 0;
+          var ties = 0;
+          //use the DOM to refer to the button
+          var button = document.getElementsByTagName("BUTTON")[0];
+          //use the DOM to refer to the select tag
+          var selection = document.getElementsByTagName("SELECT")[0];
+          // Run the "score" function whenever the user clicks the button.
+          button.addEventListener("click", score, false);
+          //a function to determine who won the round and report the results. It runs when the player clicks on the button.
+          function score(event) {
+            //create a variable to describe the whether the player won or lost THIS round (current state). At this point, we have not determined if the player won so we make it "lost".
+            var playerState = "lost";
+            //makes the element that reports the player's choice and the computer's choice visible
+            document.getElementById("roundChoices").style.setProperty("display", "block");
+            // Determines what the player selected from the drop down menu.
+            var userChoice = selection.value;
+            // Randomly choose a choice from the options array. This is the computer's choice.
+            var computerChoice = choices[Math.floor(Math.random() * choices.length)];
+            //If this round is a tie (the player makes the same choice as the computer)
+            if(userChoice == computerChoice) {
+              //hide the element that reports a win/lose result
+              document.getElementById("roundResults").style.setProperty("display", "none");
+              //show the element that reports a tie
+              document.getElementById("youTied").style.setProperty("display", "block");
+              //increment the number of ties
+              ties++;
+            //If this is not a tie
+            } else {
+              //show the element that reports a win/lose result
+              document.getElementById("roundResults").style.setProperty("display", "block");
+              //hide the element that reports a tie
+              document.getElementById("youTied").style.setProperty("display", "none");
+              //check all the winning combinations to see if there is one where the winner matches the player's choice AND the loser matches the computers choice. Note that if there IS such a combination, "winningCombo" becomes an ARRAY containing exactly one winning combination.  If there is NO such combination, it means that the computer won and winningCombo will be an empty array.
+              var winningCombo = winningCombinations.filter(winningCombination => winningCombination.winner == userChoice).filter(winningCombination => winningCombination.loser == computerChoice);
+              //if the computer won
+              if(winningCombo.length == 0) {
+                //find the ONE object that corresponds to the winning combination described by the player's choice and the computer's choice. We put the [0] index at the end to return the only winning combination object we expect from this array
+                winningCombo = winningCombinations.filter(winningCombination => winningCombination.winner == computerChoice).filter(winningCombination => winningCombination.loser == userChoice)[0];
+                //increment the number of losses.
+                losses++;
+              } else {
+                //convert the winning combination from an array containing a single winning object to that object.
+                winningCombo = winningCombo[0];
+                //change the state of the player to "won"
+                playerState = "won";
+                //increment the number of wins
+                wins++;
+              }
+              // Report who won and why
+              document.getElementById("winLose").innerHTML = playerState;
+              document.getElementById("winner").innerHTML = winningCombo.winner;
+              document.getElementById("verb").innerHTML = winningCombo.verb;
+              document.getElementById("loser").innerHTML = winningCombo.loser;
+            }
+            // Display the user and computer guesses, and wins/losses/ties.
+            document.getElementById("userChoice").innerHTML = userChoice;
+            document.getElementById("computerChoice").innerHTML = computerChoice;
+            document.getElementById("wins").innerHTML = wins;
+            document.getElementById("losses").innerHTML = losses;
+            document.getElementById("ties").innerHTML = ties;
+          };
+          console.log("Ready to play");
+        </script>
+      
+      
+      
+      </body>
+      
+      <head>
+        <meta charset="UTF-8">
+      </head>
+      
+      <body>
+        <script type="text/javascript">
+          var computerChoices = ["r", "p", "s"];
+          var wins = 0;
+          var losses = 0;
+          var ties = 0;
+      
 
+          document.onkeyup = function(event) {
 
+            var userGuess = event.key;
 
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+      
+            if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
+      
+              if ((userGuess === "r" && computerGuess === "s") ||
+                (userGuess === "s" && computerGuess === "p") || 
+                (userGuess === "p" && computerGuess === "r")) {
+                wins++;
+              } else if (userGuess === computerGuess) {
+                ties++;
+              } else {
+                losses++;
+              }
+      
+              alert("You chose: " + userGuess + "\nThe computer chose: " + computerGuess)
+              alert("wins: " + wins + "\nlosses: " + losses + "\nties: " + ties)
+            }
+          };
+        </script>
+            <body>
+              <p><a href="file:///C:/Users/valta/Desktop/Website/Main.html" class="nav-parent">Main page</a>
+                <a href="file:///C:/Users/valta/Desktop/Website/page3.html" class="nav-parent">Page 3</a>
+                <a href="file:///C:/Users/valta/Desktop/Website/page4.html" class="nav-parent">Page 4</a>
+                <a href="file:///C:/Users/valta/Desktop/Website/page5.html" class="nav-parent">Page 5</a>
+              </p>
+              
+              <img src="file:///C:/Users/valta/Desktop/Website/RPS-example.png"
+              style="float:right; margin:0px 0px 15px 15px; cursor:pointer; cursor:hand; border:0" 
+              width="500" height="500" alt="Rock paper siccors example"/> 
+              <p> For this game you have to press the key board to make your choice.<br>below is the keys you need to play with
+              <ul>
+                <li>R = Rock</li>
+                <li>P = paper</li>
+                <li>S = scissors</li>
+            </ul>
+              Press one of these keys to make your choice </p> 
+            </body>
+             
+      </body>
 
 
 
