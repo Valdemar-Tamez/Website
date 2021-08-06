@@ -1,16 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Links to other pages:
-          file:///C:/Users/valta/Desktop/Website/Main.html Main page
-          file:///C:/Users/valta/Desktop/Website/page2.html page 2
-          file:///C:/Users/valta/Desktop/Website/page3.html page 3
-          file:///C:/Users/valta/Desktop/Website/page4.html page 4 -->
     <head>
-        <meta charset="UTF-8">
-        <title>Rock, Paper, Sissors</title>
-        <h1>Rock Paper siccors</h1>
+      
+                  <!-- Required meta tags -->
+                  <meta charset="utf-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1">
+                  <!-- Bootstrap CSS -->
+                  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+      
+                </head>
+                <body>
+                  
+                  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="file:///C:/Users/valta/Desktop/Website/Main.html">Home</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="///C:/Users/valta/Desktop/Website/page2.html">Current page</a>
+                          </li>
+                          <li class="nav-item">
+                          </li>
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Dropdown
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="///C:/Users/valta/Desktop/Website/page2.html">Rock paper sciccors</a></li>
+                              <li><a class="dropdown-item" href="file:///C:/Users/valta/Desktop/Website/page3.html">Word Guess</a></li>
+                              <li><a class="dropdown-item" href="file:///C:/Users/valta/Desktop/Website/page4.html">2048 game</a></li>
+                              <li><a class="dropdown-item" href="file:///C:/Users/valta/Desktop/Website/page5.html">Number Guess</a></li>
+                            </ul>
+                          </li>
+                          <li class="nav-item">
+                          </li>
+                        </ul>
+                        <form class="d-flex">
+                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                      </div>
+                    </div>
+                  </nav>
+                  <head>
+                 </head>
+      
+        <title>Rock, Paper, Scissors</title>
+        <h1>Rock, Paper, Sciccors</h1>
         <hr>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <style>
           .gray {
             background-color:lightgray;
@@ -68,8 +108,8 @@
             </div>
           </div>
         </div>
-      
-        <script type="text/javascript">
+
+    <script  type="text/javascript">
           // Create an array that lists out all of the options (Rock, Paper, Scissors).
           var choices = ["rock", "paper", "scissors"];
           //fill an array with all possible winning combination objects according to the rules of the game
@@ -189,15 +229,13 @@
               alert("wins: " + wins + "\nlosses: " + losses + "\nties: " + ties)
             }
           };
+
+                 
+
         </script>
-            <body>
-              <p><a href="file:///C:/Users/valta/Desktop/Website/Main.html" class="nav-parent">Main page</a>
-                <a href="file:///C:/Users/valta/Desktop/Website/page3.html" class="nav-parent">Page 3</a>
-                <a href="file:///C:/Users/valta/Desktop/Website/page4.html" class="nav-parent">Page 4</a>
-                <a href="file:///C:/Users/valta/Desktop/Website/page5.html" class="nav-parent">Page 5</a>
-              </p>
+
               
-              <img src="file:///C:/Users/valta/Desktop/Website/RPS-example.png"
+              <img src="file:///C:/Users/valta/Desktop/Website/RPS.png"
               style="float:right; margin:0px 0px 15px 15px; cursor:pointer; cursor:hand; border:0" 
               width="500" height="500" alt="Rock paper siccors example"/> 
               <p> For this game you have to press the key board to make your choice.<br>below is the keys you need to play with
@@ -206,11 +244,12 @@
                 <li>P = paper</li>
                 <li>S = scissors</li>
             </ul>
-              Press one of these keys to make your choice </p> 
+              Press one of these keys to make your choice or click the drop down menu!</p> 
             </body>
-             
+            <body style="background-color:rgb(119, 154, 175);"></body>
       </body>
 
-
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" 
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 </html>

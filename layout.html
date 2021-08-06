@@ -4,13 +4,64 @@
 <head>
   <meta charset="UTF-8">
   <title>Hangman - Word Guess</title>
-
-  <!-- Bootstrap is used to make game look nicer -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-</head>
-
+  <head>
+    <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+     <title>Hangman - Word Guess</title>
+   
+   </head>
+         
+   </head>
+   <body>
+     
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <div class="container-fluid">
+         <a class="navbar-brand" href="file:///C:/Users/valta/Desktop/Website/Main.html">Home</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             <li class="nav-item">
+               <a class="nav-link active" aria-current="page" href="file:///C:/Users/valta/Desktop/Website/layout.html">Current page</a>
+             </li>
+             <li class="nav-item">
+             </li>
+             <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 Dropdown
+               </a>
+               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                 <li><a class="dropdown-item" href="///C:/Users/valta/Desktop/Website/page2.html">Rock paper sciccors</a></li>
+                 <li><a class="dropdown-item" href="file:///C:/Users/valta/Desktop/Website/page3.html">Word Guess</a></li>
+                 <li><a class="dropdown-item" href="file:///C:/Users/valta/Desktop/Website/page4.html">2048 game</a></li>
+                 <li><a class="dropdown-item" href="file:///C:/Users/valta/Desktop/Website/page5.html">Number Guess</a></li>
+               </ul>
+             </li>
+             <li class="nav-item">
+             </li>
+           </ul>
+           <form class="d-flex">
+             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+             <button class="btn btn-outline-success" type="submit">Search</button>
+           </form>
+         </div>
+       </div>
+     </nav>
+     <head>
+   
 <body>
+  <h3>More Catagories</h3>
+  <div class ="container" ></div>      
+  <a href="file:///C:/Users/valta/Desktop/Website/drinks.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Candy</a>
+  <a href="file:///C:/Users/valta/Desktop/Website/sports.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Sports</a>
+  <a href="file:///C:/Users/valta/Desktop/Website/candy.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Drinks</a>
+  <hr>
 
   <!-- Bootstrap Container will hold everything -->
   <div class="container"> 
@@ -19,8 +70,6 @@
       <div class="container">
         <h1>Hangman - Word Guess</h1>
         <h2>Guess the food!</h2>
-        <small>Click any letter to begin...</small>
-      </div>
     </div>
 
     <!-- Game counters all held here. cards are being used to hold various sections. -->
@@ -30,7 +79,7 @@
         <!-- First card: Holds the Word to Guess (blanks and guessed word) -->
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title"><strong>Word to Guess</strong></h3>
+            <h3 class="card-title"><strong>Word to Guess</strong></h3><small>Click a letter to begin...</small>
           </div>
           <div class="card-body">
             <!-- This h3 section called wordblanks is what we'll be replacing with letters as the user guesses.
@@ -86,5 +135,8 @@
 	If you put this at the top it will crash, because the HTML IDs won't exist yet.-->
   <script src="logic.js"></script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
+<body style="background-color:rgb(38, 168, 255);"></body>
 </html>
